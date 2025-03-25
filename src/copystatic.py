@@ -2,7 +2,7 @@ import os.path
 import shutil
 
 
-def copy_static_to_public(source, destination):
+def copy_static_to_public(source: str, destination: str):
     if not os.path.exists(destination):
         os.mkdir(destination)
 

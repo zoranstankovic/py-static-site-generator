@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from markdown_blocks import markdown_to_html_node
 
 
@@ -51,3 +53,21 @@ def extract_title(markdown: str) -> str:
             return line[2:]
 
     raise ValueError("there is no h1 title")
+
+
+def generate_pages_recursive(dir_path_content: str, template_path: str, dest_dir_path: str):
+    content_path = Path(dir_path_content)
+    dest_path = Path(dest_dir_path)
+
+    if not dest_path.exists():
+        dest_path.mkdir(parents=True, exist_ok=True)
+
+    for source_item in content_path.iterdir():
+        source_path_parts = source_item.parts
+        dest_item_path = dest_path / source_path_parts[-1]
+
+        if source_item.is_file():
+            dest_path = dest_item_path.with_suffix(".html")
+            generate_page(str(source_item), template_path, dest_path)
+        else:
+            generate_pages_recursive(str(source_item), template_path, str(dest_item_path))

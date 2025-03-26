@@ -127,9 +127,9 @@ def split_nodes_image(old_nodes: list[TextNode]) -> list[TextNode]:
 
 def split_nodes_link(old_nodes: list[TextNode]) -> list[TextNode]:
     """
-    Splits TextNodes containing markdown link syntax into separate TextNodes.
+    Splits TextNodes containing Markdown link syntax into separate TextNodes.
 
-    Each text node of type TextType.TEXT is examined for markdown link patterns.
+    Each text node of type TextType.TEXT is examined for Markdown link patterns.
     When found, the node is split into multiple nodes:
     - Text before the link becomes a TEXT node
     - The link becomes an LINK node with the alt text as content and the URL as url

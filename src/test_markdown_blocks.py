@@ -1,6 +1,6 @@
 import unittest
 
-from markdown_blocks import markdown_to_blocks, block_to_block_type, BlockType, markdown_to_html_node, extract_title
+from markdown_blocks import markdown_to_blocks, block_to_block_type, BlockType, markdown_to_html_node
 
 
 class TestMarkdownToBlocks(unittest.TestCase):
